@@ -6,7 +6,12 @@ export type AuthStackParamList = {
   Login: undefined;
   Register: undefined;
   Welcome: undefined;
-  Success: undefined;
+  Success:
+    | {
+        title: string;
+        description: string;
+      }
+    | undefined;
   OtpVerification: undefined;
   ForgotPassword: undefined;
 };
@@ -35,6 +40,7 @@ export const AuthNavigator = () => {
         component={Screens.ForgotPasswordScreen}
       />
       <AuthStack.Screen name="Success" component={Screens.SuccessScreen} />
+      <AuthStack.Screen name="Welcome" component={Screens.WelcomeScreen} />
     </AuthStack.Navigator>
   );
 };

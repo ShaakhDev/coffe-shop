@@ -7,11 +7,11 @@ export const InitialScreen = ({
   navigation,
 }: NativeStackScreenProps<AppStackParamList>) => {
   useEffect(() => {
-    const token = null;
+    const token = true;
     if (token) {
-      navigation.navigate('BottomTab');
+      navigation.replace('BottomTab');
     } else {
-      navigation.navigate('Auth');
+      navigation.replace('Auth');
     }
   }, []);
   return (
