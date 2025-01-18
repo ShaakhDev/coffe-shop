@@ -6,12 +6,12 @@
       "@/components": ["./src/components"],
       "@/navigators": ["./src/navigators"],
       "@/theme": ["./src/theme"],
-      // "@/utils": ["./src/utils"],
+      "@/utils": ["./src/utils"],
       "@/screens": ["./src/screens"],
       // "@/config": ["./src/config"],
       // "@/i18n": ["./src/i18n"],
-      "@/constants": ["./src/constants"]
-      // "@/icons": ["./src/resources/icons"],
+      "@/constants": ["./src/constants"],
+      "@/icons": ["./src/icons"]
       // "@/hooks": ["./src/hooks"],
       // "@/features": ["./src/features"],
       // "@/store": ["./src/store"],

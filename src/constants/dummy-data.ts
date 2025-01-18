@@ -1,0 +1,73 @@
+// Dummy data for the app to use 10 items
+export const categoriedItems = [
+  {
+    id: 1,
+    title: 'Espresso',
+    price: 3.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+  {
+    id: 2,
+    title: 'Latte',
+    price: 4.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+  {
+    id: 3,
+    title: 'Cappuccino',
+    price: 4.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+  {
+    id: 4,
+    title: 'Mocha',
+    price: 4.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+  {
+    id: 5,
+    title: 'Macchiato',
+    price: 4.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+  {
+    id: 6,
+    title: 'Americano',
+    price: 4.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+  {
+    id: 7,
+    title: 'Affogato',
+    price: 4.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+  {
+    id: 8,
+    title: 'Flat White',
+    price: 4.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+  {
+    id: 9,
+    title: 'Irish Coffee',
+    price: 4.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+  {
+    id: 10,
+    title: 'Turkish Coffee',
+    price: 4.99,
+    rating: 4.5,
+    image: require('assets/images/item.webp'),
+  },
+];

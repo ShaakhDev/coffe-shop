@@ -1,8 +1,8 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SafeAreaView, Text} from 'react-native';
 import {AuthNavigator} from './auth-navigator';
 import {TabNavigator} from './tab-navigator';
 import {InitialScreen} from '@/screens';
+import {colors} from '@/theme';
 
 export type AppStackParamList = {
   Initial: undefined;
@@ -19,15 +19,11 @@ export const AppNavigator = () => {
       }}>
       <AppStack.Screen name="Initial" component={InitialScreen} />
       <AppStack.Screen name="Auth" component={AuthNavigator} />
-      <AppStack.Screen name="BottomTab" component={TabNavigator} />
+      <AppStack.Screen
+        options={{statusBarBackgroundColor: colors.defaultScreenBackground}}
+        name="BottomTab"
+        component={TabNavigator}
+      />
     </AppStack.Navigator>
-  );
-};
-
-const HomeScreen = () => {
-  return (
-    <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
-      <Text>Verification</Text>
-    </SafeAreaView>
   );
 };
