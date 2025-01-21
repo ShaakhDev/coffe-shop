@@ -11,3 +11,6 @@ export * from './favorites';
 export * from './profile';
 export * from './home';
 export * from './welcome';
+export * from './booking';
+export * from './booking-details';
+export * from './booking-success';

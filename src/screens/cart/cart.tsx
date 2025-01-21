@@ -2,6 +2,9 @@ import {$shadow, colors, spacing} from '@/theme';
 import {ScrollView, View, ViewStyle} from 'react-native';
 import {CartItem} from './components';
 import {Button, Text} from '@/components';
+import {BottomTabScreenProps} from '@react-navigation/bottom-tabs';
+import {TabParamList} from 'src/navigators/tab-navigator';
+import {AppStackParamList} from '@/navigators';
 
 const cartData = [
   /// items count 4
@@ -43,7 +46,12 @@ const cartData = [
   },
 ];
 
-export const CartScreen = () => {
+export const CartScreen = ({
+  navigation,
+}: BottomTabScreenProps<TabParamList & AppStackParamList>) => {
+  const handleContinue = () => {
+    navigation.navigate('Booking');
+  };
   return (
     <ScrollView style={{flex: 1}} contentContainerStyle={$container}>
       {cartData?.map(item => (
@@ -64,7 +72,9 @@ export const CartScreen = () => {
           </Text>
           <Text weight="semiBold">$210</Text>
         </View>
-        <Button style={{marginTop: spacing.md}}>Continue</Button>
+        <Button onPress={handleContinue} style={{marginTop: spacing.md}}>
+          Continue
+        </Button>
       </View>
     </ScrollView>
   );
