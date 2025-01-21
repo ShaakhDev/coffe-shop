@@ -1,9 +1,32 @@
 import {spacing} from '@/theme';
 import {useState} from 'react';
-import {Dimensions, FlatList, View} from 'react-native';
+import {Dimensions, FlatList, View, ViewStyle} from 'react-native';
 import {BannerCard} from './components';
 
-const {width, height} = Dimensions.get('screen');
+const {width} = Dimensions.get('screen');
+
+const carouselData = [
+  {
+    id: 1,
+    image: require('assets/images/banner.webp'),
+    link: 'https://google.com',
+  },
+  {
+    id: 2,
+    image: require('assets/images/banner.webp'),
+    link: 'https://google.com',
+  },
+  {
+    id: 3,
+    image: require('assets/images/banner.webp'),
+    link: 'https://google.com',
+  },
+  {
+    id: 4,
+    image: require('assets/images/banner.webp'),
+    link: 'https://google.com',
+  },
+];
 
 export const BannerCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,17 +42,21 @@ export const BannerCarousel = () => {
           setCurrentIndex(index);
         }}
         pagingEnabled
-        data={[1, 2, 4, 5]}
-        keyExtractor={item => item.toString()}
+        data={carouselData}
+        keyExtractor={item => item.id.toString()}
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{
-          width: width * 4,
-          paddingHorizontal: spacing.md,
-          gap: spacing.md * 2,
-        }}
-        renderItem={({item}) => <BannerCard />}
+        contentContainerStyle={$bannerContainer}
+        renderItem={({item}) => (
+          <BannerCard image={item.image} link={item.link} />
+        )}
       />
     </View>
   );
+};
+
+const $bannerContainer: ViewStyle = {
+  width: width * 4,
+  paddingHorizontal: spacing.md,
+  gap: spacing.md * 2,
 };

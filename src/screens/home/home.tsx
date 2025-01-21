@@ -1,41 +1,39 @@
 import {spacing} from '@/theme';
-import {Platform, ScrollView, ViewStyle} from 'react-native';
+import {ScrollView, ViewStyle} from 'react-native';
 import {
   BannerCard,
   BannerCarousel,
   CategoriedItems,
+  Favorites,
   HomeHeader,
   HomeSearch,
+  RecommendedItems,
+  SectionTitle,
 } from './components';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 export const HomeScreen = () => {
-  const {top} = useSafeAreaInsets();
   return (
-    <ScrollView
-      style={{flex: 1}}
-      contentContainerStyle={[
-        $container,
-        Platform.OS === 'ios' && {paddingTop: top},
-      ]}>
-      {/* Home header */}
+    <ScrollView style={{flex: 1}} contentContainerStyle={[$container]}>
       <HomeHeader />
-      {/* Search bar */}
       <HomeSearch />
-      {/* Banner carousel */}
       <BannerCarousel />
       <CategoriedItems />
-      {/* BAnner */}
-      <BannerCard />
-      {/* Favorite coffes */}
-      {/* BAnner */}
-      <BannerCard />
-      {/* Recommended items */}
+      <BannerCard
+        image={require('assets/images/discount-banner.webp')}
+        link="https://google.com"
+      />
+      <SectionTitle title="Customer favourite" onPress={() => {}} />
+      <Favorites />
+      <BannerCard
+        image={require('assets/images/discount-banner.webp')}
+        link="https://google.com"
+      />
+      <SectionTitle title="Recommended for you" onPress={() => {}} />
+      <RecommendedItems />
     </ScrollView>
   );
 };
 
 const $container: ViewStyle = {
-  // paddingHorizontal: spacing.md,
   paddingVertical: spacing.md,
 };

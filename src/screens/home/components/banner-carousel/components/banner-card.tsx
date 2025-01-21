@@ -1,73 +1,44 @@
-import {Button, Text} from '@/components';
-import {colors, spacing} from '@/theme';
+import {spacing} from '@/theme';
 import {
   Dimensions,
   Image,
+  ImageStyle,
+  Linking,
   Pressable,
-  TextStyle,
-  View,
   ViewStyle,
 } from 'react-native';
 
 const {width} = Dimensions.get('screen');
 
-export const BannerCard = () => {
+type BannerCardProps = {
+  image: any;
+  link: string;
+};
+
+export const BannerCard = ({image, link}: BannerCardProps) => {
+  const handlePress = async () => {
+    try {
+      await Linking.openURL(link);
+    } catch (err) {
+      console.log('Error opening link', err);
+    }
+  };
   return (
-    <View style={$card}>
-      <View style={{alignItems: 'flex-start'}}>
-        <Text weight="extraBold" fontFamily="syne" size="xl" style={$whiteText}>
-          20%
-        </Text>
-        <Text weight="extraBold" fontFamily="syne" size="xl" style={$whiteText}>
-          Discount
-        </Text>
-        <Text size="xs" style={$whiteText}>
-          On your first purchase
-        </Text>
-        <Pressable style={$showNowButton}>
-          <Text size="xxs" style={$whiteText} weight="semiBold">
-            Shop now
-          </Text>
-        </Pressable>
-      </View>
-      <View style={$imageWrapper}>
-        <Image
-          resizeMode="cover"
-          source={require('assets/images/banner-card-image.webp')}
-          style={{width: '100%', height: '100%'}}
-        />
-      </View>
-    </View>
+    <Pressable style={$card} onPress={handlePress}>
+      <Image source={image} style={$image} resizeMode="contain" />
+    </Pressable>
   );
 };
 
 const $card: ViewStyle = {
-  width: width - 32,
-  padding: spacing.md,
+  width: width - spacing.md * 2,
   borderRadius: spacing.md,
   alignItems: 'center',
-  backgroundColor: colors.lightGreen,
   flexDirection: 'row',
 };
 
-const $whiteText: TextStyle = {
-  color: colors.white,
-};
-const $showNowButton: ViewStyle = {
-  backgroundColor: colors.darkGreen,
-  justifyContent: 'center',
-  alignItems: 'center',
-  paddingVertical: spacing.xs,
-  paddingHorizontal: spacing.md,
-  marginTop: spacing.sm,
-  borderRadius: spacing.sm,
-};
-const $imageWrapper: ViewStyle = {
-  position: 'absolute',
-  right: 0,
-  flex: 1,
-  width: width / 3.5,
-  height: width / 2,
-  overflow: 'hidden',
-  borderRadius: spacing.md,
+const $image: ImageStyle = {
+  width: '100%',
+  height: 200,
+  transform: [{scaleX: 1.05}],
 };

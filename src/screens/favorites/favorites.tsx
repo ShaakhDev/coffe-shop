@@ -1,16 +1,14 @@
-import {Text} from '@/components';
-import {spacing} from '@/theme';
-import {ScrollView, ViewStyle} from 'react-native';
+import {View, ViewStyle} from 'react-native';
+import {FavoriteList} from './components';
 
 export const FavoritesScreen = () => {
   return (
-    <ScrollView style={{flex: 1}} contentContainerStyle={$container}>
-      <Text>Favorites screen</Text>
-    </ScrollView>
+    <View style={$container}>
+      <FavoriteList />
+    </View>
   );
 };
 
 const $container: ViewStyle = {
-  paddingHorizontal: spacing.md,
-  paddingVertical: spacing.md,
+  flex: 1,
 };

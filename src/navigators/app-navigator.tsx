@@ -20,7 +20,7 @@ export const AppNavigator = () => {
       <AppStack.Screen name="Initial" component={InitialScreen} />
       <AppStack.Screen name="Auth" component={AuthNavigator} />
       <AppStack.Screen
-        options={{statusBarBackgroundColor: colors.defaultScreenBackground}}
+        options={{statusBarBackgroundColor: colors.white}}
         name="BottomTab"
         component={TabNavigator}
       />

@@ -4,7 +4,7 @@ import {
 } from '@react-navigation/bottom-tabs';
 import * as Screens from '@/screens';
 import {renderTabBarIcon, renderTabBarLabel} from './navigation-utils';
-import {BagIcon, BookmarkIcon, ChatIcon, HomeIcon, ProfileIcon} from '@/icons';
+import {BagIcon, ChatIcon, HeartIcon, HomeIcon, ProfileIcon} from '@/icons';
 import {colors} from '@/theme';
 
 export type TabParamList = {
@@ -24,17 +24,21 @@ type TTabOptions = {
 const TabScreenOptions: TTabOptions = {
   Home: {
     tabBarIcon: ({focused}) => renderTabBarIcon(HomeIcon, focused),
+    headerShown: false,
   },
   Favorites: {
-    tabBarIcon: ({focused}) => renderTabBarIcon(BookmarkIcon, focused),
+    tabBarIcon: ({focused}) => renderTabBarIcon(HeartIcon, focused),
+    title: 'Favorites',
   },
   Cart: {
     tabBarIcon: ({focused}) => renderTabBarIcon(BagIcon, focused),
+    title: 'Your cart',
   },
   Chat: {
     tabBarIcon: ({focused}) => renderTabBarIcon(ChatIcon, focused),
   },
   Profile: {
+    headerShown: false,
     tabBarIcon: ({focused}) => renderTabBarIcon(ProfileIcon, focused),
   },
 };
@@ -51,8 +55,7 @@ export const TabNavigator = () => {
         sceneStyle: {
           backgroundColor: colors.defaultScreenBackground,
         },
-
-        headerShown: false,
+        headerTitleAlign: 'center',
         tabBarLabel: renderTabBarLabel,
       }}>
       <Tab.Screen

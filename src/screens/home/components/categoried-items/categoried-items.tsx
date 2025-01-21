@@ -10,7 +10,7 @@ export const CategoriedItems = () => {
         data={categoriedItems}
         contentContainerStyle={{
           paddingHorizontal: spacing.md,
-          marginVertical: spacing.md,
+          // marginVertical: spacing.md,
           gap: spacing.md,
         }}
         keyExtractor={item => item.id.toString()}
